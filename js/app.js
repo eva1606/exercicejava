@@ -84,3 +84,16 @@ function loadItems() {
 
         renderCards(filteredItems);
 });
+
+sortSelect.addEventListener('change', () => {
+    const searchText = searchInput.value.toLowerCase();
+  
+    const filteredItems = allItems.filter(item =>
+      item.title.toLowerCase().includes(searchText) ||
+      item.author.toLowerCase().includes(searchText)
+    );
+  
+    const sortedItems = sortItems(filteredItems, sortSelect.value);
+  
+    renderCards(sortedItems);
+  });
