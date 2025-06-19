@@ -117,3 +117,7 @@ function applySavedTheme() {
         themeIcon.classList.replace('bi-moon-fill', 'bi-sun-fill');
     }
 }
+
+applySavedTheme();
+
+loadItems();
