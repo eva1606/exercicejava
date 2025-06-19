@@ -57,3 +57,18 @@ function loadItems() {
         errorContainer.textContent = `Failed to load items. Please try again later. : ${error.message}`;
       });
   }
+
+  function sortItems(items, sortBy) {
+    return items.slice().sort((a, b) => {
+      if (sortBy === 'title-asc') {
+        return a.title.localeCompare(b.title);
+      } else if (sortBy === 'title-desc') {
+        return b.title.localeCompare(a.title);
+      } else if (sortBy === 'author-asc') {
+        return a.author.localeCompare(b.author);
+      } else if (sortBy === 'author-desc') {
+        return b.author.localeCompare(a.author);
+      }
+      return 0;
+    });
+  }
