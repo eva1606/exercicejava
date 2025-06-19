@@ -40,3 +40,20 @@ function createCard(item) {
         cardsContainer.appendChild(card);
     });
 }
+
+function loadItems() {
+    fetch('data/items.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Erreur HTTP : ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(items => {
+        allItems = items; 
+        renderCards(allItems); 
+      })
+      .catch(error => {
+        errorContainer.textContent = `Failed to load items. Please try again later. : ${error.message}`;
+      });
+  }
