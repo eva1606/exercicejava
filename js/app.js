@@ -109,3 +109,11 @@ sortSelect.addEventListener('change', () => {
         localStorage.setItem('theme', 'light');
     }
 });
+
+function applySavedTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeIcon.classList.replace('bi-moon-fill', 'bi-sun-fill');
+    }
+}
