@@ -26,3 +26,17 @@ function createCard(item) {
   
     return col;
   }
+
+  function renderCards(items) {
+    cardsContainer.innerHTML = ''; 
+
+    if (items.length === 0) {
+        cardsContainer.innerHTML = '<p class="text-center">No results found.</p>';
+        return;
+    }
+    
+    items.forEach(item => {
+        const card = createCard(item);
+        cardsContainer.appendChild(card);
+    });
+}
