@@ -72,3 +72,15 @@ function loadItems() {
       return 0;
     });
   }
+
+
+  searchInput.addEventListener('input', () => {
+    const searchText = searchInput.value.toLowerCase();
+
+    const filteredItems = allItems.filter(item => 
+        item.title.toLowerCase().includes(searchText) ||
+        item.author.toLowerCase().includes(searchText)
+        );
+
+        renderCards(filteredItems);
+});
