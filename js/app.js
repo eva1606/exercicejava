@@ -97,3 +97,15 @@ sortSelect.addEventListener('change', () => {
   
     renderCards(sortedItems);
   });
+
+  themeToggle.addEventListener('click', () => {
+    const isDark = document.body.classList.toggle('dark-mode');
+
+    if (isDark) {
+        themeIcon.classList.replace('bi-moon-fill', 'bi-sun-fill');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        themeIcon.classList.replace('bi-sun-fill', 'bi-moon-fill');
+        localStorage.setItem('theme', 'light');
+    }
+});
